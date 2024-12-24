@@ -1,19 +1,19 @@
-def merge(l, r):
-    merged = []
+def unite(l, r):
+    united = []
     i = 0
     j = 0
     while i < len(l) and j < len(r):
         if l[i] < r[j]:
-            merged.append(l[i])
+            united.append(l[i])
             i += 1
         else:
-            merged.append(r[j])
+            united.append(r[j])
             j += 1
     if i < len(l):
-        merged += l[i:]
+        united += l[i:]
     else:
-        merged += r[j:]
-    return merged
+        united += r[j:]
+    return united
 
 def thanos_sort(arr):
     if len(arr) <= 1:
@@ -32,7 +32,7 @@ def thanos_sort(arr):
             unsorted.append(n)
     if unsorted:
         sorted2 = thanos_sort(unsorted)
-        return merge(sorted1, sorted2)
+        return unite(sorted1, sorted2)
     return sorted1
         
 
